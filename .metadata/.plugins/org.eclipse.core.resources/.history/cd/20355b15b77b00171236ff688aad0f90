@@ -1,0 +1,9 @@
+main: com.github.escapemc.arenaplugin.Main
+name: ArenaPlugin
+version: 1.0.0
+author: EscapeMC
+description: A plugin made for Arenas or Dueling.
+commands:
+  arena setspawn:
+    description: Sets the spawn for the BlueTeam.
+    default: false

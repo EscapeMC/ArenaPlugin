@@ -1,0 +1,19 @@
+package com.github.escapemc.arenaplugin.bases;
+
+import java.util.ArrayList;
+
+import org.bukkit.entity.Player;
+
+public class Team {
+
+	public String name;
+	public double spawnX;
+	public double spawnY;
+	public double spawnZ;
+	
+	public int playerCount;
+	public int num;
+		
+	public static ArrayList<Player> Players;
+		
+}

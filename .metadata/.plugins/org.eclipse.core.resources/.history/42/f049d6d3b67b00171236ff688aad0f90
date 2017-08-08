@@ -1,0 +1,42 @@
+package com.github.escapemc.arenaplugin.commands;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+
+import com.github.escapemc.arenaplugin.teams.BlueTeam;
+
+public class CommandSetSpawn implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+		Player p = (Player) sender;
+		Location loc = ((Entity) sender).getLocation();
+		
+		if (cmd.getName().equalsIgnoreCase("arena setspawn")) {
+							
+			if (args.length == 1) {
+				
+				p.sendMessage("You forgot to specify a team to set the spawn for. Try /arena setspawn [Team Name]");
+					
+			}
+							
+			if (args[0].equalsIgnoreCase("blue")) {
+				
+				BlueTeam.setBlueSpawn(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), p);
+				p.sendMessage(ChatColor.BLUE + "Set the spawn of the Blue team to " + p.getLocation());
+					
+			}
+			
+		}
+		
+		return false;
+	
+	}
+
+}

@@ -1,0 +1,51 @@
+package com.github.escapemc.arenaplugin.bases;
+
+import java.util.ArrayList;
+
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
+public class Team {
+
+	public static String name;
+	public static double spawnX;
+	public static double spawnY;
+	public static double spawnZ;
+	
+	public static int playerCount;
+	public static int num;
+	public static Location teleLoc;
+		
+	public static ArrayList<String> redTeam = new ArrayList<String>();
+	public static ArrayList<String> blueTeam = new ArrayList<String>();
+		
+	public static boolean isInTeam(Player player) {
+		
+		
+		return redTeam.contains(player.getName()) || blueTeam.contains(player.getName());
+	}
+	
+	public static void addToTeam(TeamType type, Player player) {
+		
+		if(isInTeam(player)) {
+			
+			player.sendMessage("You are already on a team!");
+			return;
+			
+		}
+		
+		switch(type) {
+		
+		case RED:
+			
+			redTeam.add(player.getName());
+			break;
+		
+		case BLUE:
+			
+			blueTeam.add(player.getName());
+			break;
+		
+		}		
+	}
+}

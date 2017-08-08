@@ -1,0 +1,19 @@
+package com.github.escapemc.arenaplugin.bases;
+
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
+import org.bukkit.entity.Player;
+
+public class Team {
+
+	public String name;
+	public double spawnX;
+	public double spawnY;
+	public double spawnZ;
+	
+	Logger logger = getLogger();
+	
+	public static ArrayList<Player> Players;
+		
+}

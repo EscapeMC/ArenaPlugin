@@ -1,0 +1,10 @@
+package com.github.escapemc.arenaplugin.bases;
+
+public class Team {
+
+	public static String name;
+	public static double spawnX;
+	public static double spawnY;
+	public static double spawnZ;
+		
+}

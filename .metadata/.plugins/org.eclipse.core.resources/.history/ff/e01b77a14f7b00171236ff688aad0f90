@@ -1,0 +1,21 @@
+package com.github.escapemc.arenaplugin.teams;
+
+import org.bukkit.entity.Player;
+
+import com.github.escapemc.arenaplugin.bases.Team;
+
+public class BlueTeam extends Team {
+
+	public void setBlueSpawn(double posX, double posY, double posZ, Player playerIn) {
+		
+		this.spawnX = posX;
+		this.spawnY = posY;
+		this.spawnZ = posZ;
+		
+		posX = playerIn.getLocation().getX();
+		posY = playerIn.getLocation().getY();
+		posZ = playerIn.getLocation().getZ();
+		
+	}
+	
+}

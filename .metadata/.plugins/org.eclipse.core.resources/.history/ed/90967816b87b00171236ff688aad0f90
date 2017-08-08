@@ -1,0 +1,60 @@
+package com.github.escapemc.arenaplugin.teams;
+
+import java.util.ArrayList;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.entity.Player;
+
+import com.github.escapemc.arenaplugin.bases.Team;
+
+public class BlueTeam extends Team {
+
+	public static void setBlueSpawn(double posX, double posY, double posZ, Player playerIn) {
+		
+		spawnX = posX;
+		spawnY = posY;
+		spawnZ = posZ;
+				
+		posX = playerIn.getLocation().getX();
+		posY = playerIn.getLocation().getY();
+		posZ = playerIn.getLocation().getZ();
+		
+		Player p = (Player) playerIn;
+		Location loc = p.getLocation();
+		
+		World w = loc.getWorld();
+		
+		Location teleLoc = new Location(world, posX, posY, posZ);
+
+		playerIn.sendMessage(ChatColor.BLUE + "Blue Team Spawn set to " + posX + " " + posY + " " + posZ);
+		
+	}
+		
+	public void teleportBlueSpawn(double posX, double posY, double posZ, Player playerIn, ArrayList<Player> list) {
+		
+		if(list.isEmpty()) {
+			
+			playerIn.sendMessage(ChatColor.DARK_BLUE + "There are no players on the Blue Team.");
+			
+		}else{
+			
+			playerCount = list.size();
+			
+			for(num = 0; num < playerCount; num++) {
+				
+				if(list.contains(playerIn.getName())) {
+					
+					playerIn.teleport(teleLoc);
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}

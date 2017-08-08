@@ -1,0 +1,4 @@
+main: com.github.escapemc.arenaplugin.Main
+version: 1.0.0
+authors: EscapeMC
+description: A plugin made for Arenas or Dueling.

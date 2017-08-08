@@ -1,0 +1,49 @@
+package com.github.escapemc.arenaplugin.commands;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
+import com.github.escapemc.arenaplugin.bases.Team;
+import com.github.escapemc.arenaplugin.bases.TeamType;
+
+public class CommandTeam implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if(label.equalsIgnoreCase("team")) {
+			
+			if(args[0].equalsIgnoreCase("check")) {
+				
+				if(Team.redTeam.contains(args[1])) {
+					
+					sender.sendMessage(ChatColor.RED + args[1] + " is on the Red Team.");
+					
+				}
+
+				if(Team.blueTeam.contains(args[1])) {
+					
+					sender.sendMessage(ChatColor.BLUE + args[1] + " is on the Blue Team.");
+					
+				}
+
+			}
+			if(args[0].equalsIgnoreCase("assign")) {
+				
+				
+				if(args[2].equalsIgnoreCase("blue")) {
+					
+					Team.addToTeam(TeamType.BLUE, args[1]);
+					
+				}
+				
+			}
+			
+		}
+
+		return false;
+
+	}
+
+}

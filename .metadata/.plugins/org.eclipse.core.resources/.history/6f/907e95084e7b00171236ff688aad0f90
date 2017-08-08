@@ -1,0 +1,15 @@
+package com.github.escapemc.arenaplugin.teams;
+
+import com.github.escapemc.arenaplugin.bases.Team;
+
+public class BlueTeam extends Team {
+
+	public void setBlueSpawn(double posX, double posY, double posZ) {
+		
+		this.spawnX = posX;
+		this.spawnY = posY;
+		this.spawnZ = posZ;
+		
+	}
+	
+}

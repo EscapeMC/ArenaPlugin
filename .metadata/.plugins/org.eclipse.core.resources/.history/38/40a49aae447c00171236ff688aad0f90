@@ -1,0 +1,96 @@
+package com.github.escapemc.arenaplugin;
+
+import java.util.logging.Logger;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import com.github.escapemc.arenaplugin.bases.Team;
+import com.github.escapemc.arenaplugin.commands.CommandSetSpawn;
+import com.github.escapemc.arenaplugin.commands.CommandTeam;
+import com.github.escapemc.arenaplugin.teams.BlueTeam;
+import com.github.escapemc.arenaplugin.teams.RedTeam;
+
+public class Main extends JavaPlugin {
+
+	PluginDescriptionFile pdfFile = getDescription();
+	Logger logger = getLogger();
+	
+	public void onEnable() {
+		
+		logger.info("Enabling " + pdfFile.getName() + " Version - " + pdfFile.getVersion() + " Made By " + pdfFile.getAuthors());
+		registerCommands();
+		Team.clearTeams();
+		
+	}
+	
+	public void onDisable() {
+		
+		logger.info("Disabling " + pdfFile.getName() + " Version - " + pdfFile.getVersion() + " Made By " + pdfFile.getAuthors());
+		Team.clearTeams();
+		
+	}
+	
+	private void registerCommands() {
+		
+		getCommand("arena_team").setExecutor(new CommandTeam());
+		
+	}
+		
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+		if (cmd.getName().equalsIgnoreCase("arena_setspawn")) {
+
+			Player p = (Player) sender;
+			
+			if (args.length == 0) {
+				
+				p.sendMessage("You forgot to specify a team to set the spawn for. Try /arena_setspawn [Team Name]");
+					
+			}
+							
+			if (args[0].equalsIgnoreCase("blue")) {
+				
+				BlueTeam.setBlueSpawn(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), p);
+				getConfig().set("spawn.blue.world", p.getLocation().getWorld());
+				getConfig().set("spawn.blue.x", p.getLocation().getX());
+				getConfig().set("spawn.blue.y", p.getLocation().getY());
+				getConfig().set("spawn.blue.z", p.getLocation().getZ());
+				getConfig().set("spawn.blue.pitch", p.getLocation().getPitch());
+				getConfig().set("spawn.blue.yaw", p.getLocation().getYaw());
+				saveConfig();
+				p.sendMessage(ChatColor.DARK_PURPLE + "(Pst, also saved Blue Spawn to config file!)");
+				
+			}
+			
+			if(args[0].equalsIgnoreCase("red")) {
+				
+				RedTeam.setRedSpawn(p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), p);
+				getConfig().set("spawn.red.world", p.getLocation().getWorld());
+				getConfig().set("spawn.red.x", p.getLocation().getX());
+				getConfig().set("spawn.red.y", p.getLocation().getY());
+				getConfig().set("spawn.red.z", p.getLocation().getZ());
+				getConfig().set("spawn.red.pitch", p.getLocation().getPitch());
+				getConfig().set("spawn.red.yaw", p.getLocation().getYaw());
+				saveConfig();
+				p.sendMessage(ChatColor.DARK_PURPLE + "(Pst, also saved Red Spawn to config file!)");
+				
+			}
+			
+		}
+		
+		if(cmd.getName().equalsIgnoreCase("arena_start")) {
+			
+			
+			
+		}
+		
+		return false;
+	}
+
+}

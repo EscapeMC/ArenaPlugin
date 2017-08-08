@@ -1,0 +1,66 @@
+package com.github.escapemc.arenaplugin.commands;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
+import com.github.escapemc.arenaplugin.bases.Team;
+
+public class CommandTeam implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		
+		Team.onlinePlayers = Bukkit.getOnlinePlayers().toString();
+		
+		if(args[0] == "") {
+			
+			sender.sendMessage(ChatColor.AQUA + "/arena team [check/assign]");
+			
+		}
+		
+		if(args[0].equalsIgnoreCase("check")) {
+			
+			if(Team.redTeam.contains(args[1])) {
+					
+				sender.sendMessage(ChatColor.RED + args[1] + " is on the Red Team.");
+				
+			}
+
+			if(Team.blueTeam.contains(args[1])) {
+					
+				sender.sendMessage(ChatColor.BLUE + args[1] + " is on the Blue Team.");
+					
+			}
+
+		}
+		if(args[0].equalsIgnoreCase("assign")) {
+						
+			if(args[2].equalsIgnoreCase("blue")) {
+				
+				if(Team.onlinePlayers.contains(args[1])) {
+						
+					Team.blueTeam.add(args[1]);
+						
+				}
+					
+			}
+			if(args[2].equalsIgnoreCase("red")) {
+					
+				if(Team.onlinePlayers.contains(args[1])) {
+						
+					Team.redTeam.add(args[1]);
+						
+				}
+					
+			}
+				
+		}
+			
+		return false;
+
+	}
+
+}

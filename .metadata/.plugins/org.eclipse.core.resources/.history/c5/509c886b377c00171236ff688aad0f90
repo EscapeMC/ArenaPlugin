@@ -1,0 +1,38 @@
+package com.github.escapemc.arenaplugin;
+
+import java.util.logging.Logger;
+
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import com.github.escapemc.arenaplugin.bases.Team;
+import com.github.escapemc.arenaplugin.commands.CommandSetSpawn;
+
+public class Main extends JavaPlugin {
+
+	PluginDescriptionFile pdfFile = getDescription();
+	Logger logger = getLogger();
+	
+	public void onEnable() {
+		
+		logger.info("Enabling " + pdfFile.getName() + " Version - " + pdfFile.getVersion() + " Made By " + pdfFile.getAuthors());
+		registerCommands();
+		Team.clearTeams();
+		
+	}
+	
+	public void onDisable() {
+		
+		logger.info("Disabling " + pdfFile.getName() + " Version - " + pdfFile.getVersion() + " Made By " + pdfFile.getAuthors());
+		Team.clearTeams();
+		
+	}
+	
+	private void registerCommands() {
+		
+		getCommand("arena_setspawn").setExecutor(new CommandSetSpawn());
+		getCommand("arena team").setExecutor(new CommandTeam());
+		
+	}
+	
+}

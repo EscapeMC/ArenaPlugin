@@ -1,0 +1,7 @@
+package com.github.escapemc.arenaplugin.bases;
+
+public class Team {
+
+	public static String name;
+	
+}
