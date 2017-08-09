@@ -1,7 +1,0 @@
-package com.github.escapemc.arenaplugin.commands;
-
-import org.bukkit.command.CommandExecutor;
-
-public class CommandStart implements CommandExecutor {
-
-}

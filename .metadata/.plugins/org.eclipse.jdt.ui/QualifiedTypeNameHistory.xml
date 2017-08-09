@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="org.bukkit.entity.Entity"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="com.github.escapemc.arenaplugin.bases.Team"/>
+<fullyQualifiedTypeName name="com.github.escapemc.arenaplugin.bases.TeamType"/>
+<fullyQualifiedTypeName name="com.github.escapemc.arenaplugin.teams.RedTeam"/>
+<fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
+<fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+<fullyQualifiedTypeName name="com.github.escapemc.arenaplugin.Main"/>
+<fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+<fullyQualifiedTypeName name="org.bukkit.World"/>
+<fullyQualifiedTypeName name="com.github.escapemc.arenaplugin.teams.BlueTeam"/>
+<fullyQualifiedTypeName name="com.github.escapemc.arenaplugin.commands.CommandTeam"/>
+<fullyQualifiedTypeName name="org.bukkit.Location"/>
 </qualifiedTypeNameHistroy>

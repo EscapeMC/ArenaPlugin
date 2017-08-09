@@ -1,7 +1,0 @@
-package com.github.escapemc.arenaplugin.teams;
-
-import com.github.escapemc.arenaplugin.bases.Team;
-
-public class RedTeam extends Team {
-
-}
